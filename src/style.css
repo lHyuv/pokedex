@@ -1,3 +1,25 @@
 #pklist{
     color: black;
 }
+#notice{
+    color: red;
+}
+#pokemonList{
+    display: block;
+    margin: 10px;
+   
+  
+    
+}
+#infoContainer{
+    
+    line-height: 25px;
+    display: block;
+    text-align: justify;
+    
+}
+body{
+    margin: 10px;
+    padding: 20px;
+}
+
