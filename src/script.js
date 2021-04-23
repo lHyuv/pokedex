@@ -60,8 +60,7 @@ const showContent = async () => {
     let color = ' ';
     //output
     document.querySelector("#infoContainer").innerHTML =
-    `<br>
-    
+    `
     <p>
     <h5>Type</h5>
     <ul>
@@ -163,6 +162,10 @@ const showContent = async () => {
     </p>
     <p><h5>Base Experience </h5>
     <ul><li class = 'fa fa-compass'> ${data.base_experience}</li></ul> </p> 
+    
+    `;
+    document.querySelector('#infoSkill').innerHTML =
+    `
     <table  class="table table-hover">
     <thead>
     <tr><th>Moves</th></tr>

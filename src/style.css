@@ -8,8 +8,6 @@
     display: block;
     margin: 10px;
    
-  
-    
 }
 #infoContainer{
     
@@ -18,11 +16,16 @@
     text-align: justify;
     
 }
-body{
-    margin: 30px;
-    padding: 100px;
-}
-#infoName{
-    text-align: center;
+
+#infoContainer, #infoSkill{
+    width: 75%;
+
 }
 
+th{
+    background-color: skyblue;
+}
+header{
+    background-color: #FF8484;
+    width: 100%;
+}
