@@ -1,36 +1,44 @@
-const getList = async () => {
+
+<script>
+import 'jquery/dist/jquery.min.js';
+import $ from 'jquery';
+import Selectr from 'mobius1-selectr';
+export default{
+  name: 'Select',
+
+
+  async created(){
+  
     try{
     const resp = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=111');
     const data = await resp.json();
     //name
     let newArray = [];
     data.results.forEach((pokemon) => { 
-        newArray.push(pokemon.name)
+        newArray.push(`<option>${pokemon.name}</option>`)
     });
     //pokemon list output
-    document.querySelector('#pokemonList').innerHTML =
-    `
-    <select id = 'pklist' onchange = "showContent()">
-    <option>-Type your pokemon-</option>
-    ${
-       newArray.map((pokemon) => {
-           return `<option>${pokemon}</option>`
-       })
-    }
-    </select>
-    `;
+
+  
+    $('#pokemonList').append(
+        newArray
+    )
+    
     }catch(e){
         document.querySelector('#notice').innerHTML =
         '<h4>There was a problem fetching the data</h4>';
         console.log(e);
     }
-    //jQuery is needed for select2
-    $('#pklist').select2({width: '100%'});
-}
-getList();
-const showContent = async () => {
-    try{
-    let selected = await document.querySelector('#pklist').value;
+
+ //await $('#pokemonList').select2({width: '100%'});
+
+new Selectr(document.getElementById('pokemonList'));
+
+  },
+  methods: {
+    async showContent(){
+          try{
+    let selected = await document.querySelector('#pokemonList').value;
     const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${selected}`);
     const data = await resp.json();
     
@@ -189,9 +197,24 @@ const showContent = async () => {
     <img src = '${data.sprites.front_default}'>
     `
     }catch(e){
+        /*
         document.querySelector('#notice').innerHTML =
         '<h4>There was a problem fetching the data</h4>';
         console.log(e);
+        */
     }
   
+    }
+  }
 }
+
+</script>
+<template>
+ <link href="https://unpkg.com/mobius1-selectr@latest/dist/selectr.min.css" rel="stylesheet" type="text/css">
+
+ 
+    <select id = 'pokemonList' @change.prevent = "showContent()">
+    <option disabled selected>-Type your pokemon-</option>
+    </select>
+  
+</template>
