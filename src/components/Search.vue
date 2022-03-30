@@ -1,6 +1,7 @@
 
 <script>
-import 'jquery/dist/jquery.min.js';
+import "jquery/dist/jquery.min.js";
+import "datatables.net-dt";
 import $ from 'jquery';
 import Selectr from 'mobius1-selectr';
 export default{
@@ -164,19 +165,19 @@ new Selectr(document.getElementById('pokemonList'));
         }
      
         return `<li style = 'color:${color}'  class = "${classType}">
-        ${type}
+       <b> ${type.charAt(0).toUpperCase() + type.slice(1)}</b>
         </li><br>`
     }).join("")}
     </ul>
     </p>
     <p><h5> Base Stats </h5>
     <ul>
-    <li class = 'fa fa-compass'> HP: ${stats[0]} </li><br>
-    <li class = 'fa fa-compass'> Atk: ${stats[1]} </li><br>
-    <li class = 'fa fa-compass'> Def: ${stats[2]} </li><br>
-    <li class = 'fa fa-compass'> Special Atk: ${stats[3]} </li><br>
-    <li class = 'fa fa-compass'> Special Def: ${stats[4]} </li><br>
-    <li class = 'fa fa-compass'> Speed:  ${stats[5]} </li><br>
+    <li class = 'fa fa-compass'> <b>HP:</b> ${stats[0]} </li><br>
+    <li class = 'fa fa-compass'> <b>Atk:</b> ${stats[1]} </li><br>
+    <li class = 'fa fa-compass'> <b>Def:</b> ${stats[2]} </li><br>
+    <li class = 'fa fa-compass'> <b>Special Atk:</b> ${stats[3]} </li><br>
+    <li class = 'fa fa-compass'> <b>Special Def:</b> ${stats[4]} </li><br>
+    <li class = 'fa fa-compass'> <b>Speed:</b>  ${stats[5]} </li><br>
     </ul>
     </p>
     <p><h5>Base Experience </h5>
@@ -185,15 +186,15 @@ new Selectr(document.getElementById('pokemonList'));
     `;
     document.querySelector('#infoSkill').innerHTML =
     `
-    <table  class="table table-hover">
-    <thead>
+    <table  id = "infoSkill" class="table table-hover">
+    <thead class = "thead-light">
     <tr><th>Moves</th></tr>
     </thead>
     <tbody>
     
     ${moves.map((moveName) => {
        
-        return `<tr><td>
+        return `<tr><td><i class = 'fa fa-cog'></i>&nbsp
         ${moveName.charAt(0).toUpperCase() + moveName.slice(1)}
         </td></tr>`
         
@@ -201,6 +202,22 @@ new Selectr(document.getElementById('pokemonList'));
     </tbody>
     </table>
     `;
+    $(document).ready(()=>{
+    $('#infoSkill').dataTable({
+            "responsive" : true,
+            "autoWidth" : false,
+            "pageLength" : 5,
+            "bDestroy" : true,
+            "destroy" : true,
+            "serverSide" : false,
+            "bInfo" : false,
+            "info" : false,
+            "bPaginate" : true,
+            "bFilter" : true,
+            "lengthChange":false
+    });
+    $('.paginate_button').css('margin','2px');
+    });
     document.querySelector('#infoName').innerHTML = 
     `<h3>${name[0].charAt(0).toUpperCase() + name[0].slice(1)} </h3>`;
     document.querySelector('#infoPic').innerHTML =

@@ -15,7 +15,7 @@ export default{
     <div id ="container" >
     <div  class = "d-flex justify-content-center">
         <Search></Search>
-    </div>
+    </div><br>
     <div class ='row'>
     <div class = 'col-sm-12  d-flex justify-content-center'>
         <div id = 'infoName'></div>
@@ -32,7 +32,8 @@ export default{
         </div>
         <div class = 'col-sm-6 d-flex justify-content-center'>
             <br>
-        <div id = 'infoSkill'></div>
+    <table  id = "infoSkill" class="table table-hover">
+    </table>
         </div>
     </div>
 

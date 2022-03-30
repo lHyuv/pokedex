@@ -32,7 +32,7 @@ export default{
         //pokemon list output
 
     
-        $('table').append(
+        $('table tbody').append(
             newArray
         );
      
