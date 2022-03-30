@@ -4,12 +4,15 @@ import 'jquery/dist/jquery.min.js';
 import $ from 'jquery';
 import Selectr from 'mobius1-selectr';
 export default{
-  name: 'Select',
+  name: 'Search',
 
 
   async created(){
   
+
     try{
+         // $('#DataTables_Table_0_wrapper').css('display','none');
+
     const resp = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=111');
     const data = await resp.json();
     //name
@@ -22,8 +25,15 @@ export default{
   
     $('#pokemonList').append(
         newArray
-    )
+    );
     
+    //
+    $('.paginate_button').css('display','none');
+    $('.ellipsis').css('display','none');
+    $('.dataTables_length').css('display','none');
+    $('.dataTables_filter').css('display','none');
+    //
+
     }catch(e){
         document.querySelector('#notice').innerHTML =
         '<h4>There was a problem fetching the data</h4>';
@@ -33,6 +43,7 @@ export default{
  //await $('#pokemonList').select2({width: '100%'});
 
 new Selectr(document.getElementById('pokemonList'));
+
 
   },
   methods: {

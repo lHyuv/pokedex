@@ -2,20 +2,26 @@
   "name": "pokedex",
   "version": "0.1.0",
   "private": true,
+  "description": "@author: lHyuven\r A pokedex web application containing information about pokemons. Made for practice. Uses PokeApi API: https://pokeapi.co/",
+  "author": "",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "main": "babel.config.js",
   "dependencies": {
     "core-js": "^3.6.5",
+    "datatables.net-dt": "^1.11.5",
     "jquery": "^3.6.0",
     "mobius1-selectr": "^2.4.13",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.17",
     "@vue/cli-plugin-eslint": "~4.5.17",
+    "@vue/cli-plugin-router": "^4.5.17",
     "@vue/cli-service": "~4.5.17",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",

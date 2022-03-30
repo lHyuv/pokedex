@@ -1,10 +1,10 @@
 
 <script>
-import Select from './Select.vue';
+import Search from './Search.vue';
 export default{
     name: 'Dex',
     components: {
-        Select
+        Search
     }
 }
 
@@ -14,7 +14,7 @@ export default{
     <div id = "notice"></div><br>
     <div id ="container" >
     <div  class = "d-flex justify-content-center">
-        <Select></Select>
+        <Search></Search>
     </div>
     <div class ='row'>
     <div class = 'col-sm-12  d-flex justify-content-center'>
