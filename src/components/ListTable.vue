@@ -31,7 +31,9 @@ export default{
         });
         //pokemon list output
 
-    
+        $('table').DataTable().destroy();
+        $('table tbody').empty();
+        
         $('table tbody').append(
             newArray
         );

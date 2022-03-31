@@ -2,3 +2,4 @@
 jquery
 mobius1-selectr
 vue-router
+gh-pages

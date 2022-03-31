@@ -1,7 +1,10 @@
 .DS_Store
-node_modules
-/dist
 
+
+#remove these when deploying
+/dist
+dist
+node_modules
 
 # local env files
 .env.local

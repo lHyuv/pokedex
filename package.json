@@ -11,8 +11,10 @@
   },
   "main": "babel.config.js",
   "dependencies": {
+    "@vue/cli": "^4.5.17",
     "core-js": "^3.6.5",
     "datatables.net-dt": "^1.11.5",
+    "gh-pages": "^3.2.3",
     "jquery": "^3.6.0",
     "mobius1-selectr": "^2.4.13",
     "vue": "^3.0.0",
