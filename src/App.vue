@@ -17,6 +17,8 @@ export default{
 }
 </script>
 <template>
+    <!DOCTYPE HTML>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <!--bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/slate/bootstrap.min.css" integrity="sha384-8iuq0iaMHpnH2vSyvZMSIqQuUnQA7QM+f6srIdlgBrTSEyd//AWNMyEaSF2yPzNQ" crossorigin="anonymous">
@@ -24,7 +26,7 @@ export default{
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!--font awesome-->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href = "./assets/style.css">
+    <!--link rel="stylesheet" href = "./assets/style.css"-->
   <PageHeader></PageHeader>
   <div class = "container mt-5">
   <router-view></router-view>

@@ -164,24 +164,24 @@ new Selectr(document.getElementById('pokemonList'));
   
         }
      
-        return `<li style = 'color:${color}'  class = "${classType}">
-       <b> ${type.charAt(0).toUpperCase() + type.slice(1)}</b>
+        return `<li style = 'color:${color}'  class = "${classType}" >
+       <b style = 'padding: 10px'> ${type.charAt(0).toUpperCase() + type.slice(1)}</b>
         </li><br>`
     }).join("")}
     </ul>
     </p>
     <p><h5> Base Stats </h5>
     <ul>
-    <li class = 'fa fa-compass'> <b>HP:</b> ${stats[0]} </li><br>
-    <li class = 'fa fa-compass'> <b>Atk:</b> ${stats[1]} </li><br>
-    <li class = 'fa fa-compass'> <b>Def:</b> ${stats[2]} </li><br>
-    <li class = 'fa fa-compass'> <b>Special Atk:</b> ${stats[3]} </li><br>
-    <li class = 'fa fa-compass'> <b>Special Def:</b> ${stats[4]} </li><br>
-    <li class = 'fa fa-compass'> <b>Speed:</b>  ${stats[5]} </li><br>
+    <li class = 'fa fa-compass' style = 'padding: 10px'> <b>HP:</b> ${stats[0]} </li><br>
+    <li class = 'fa fa-compass' style = 'padding: 10px'> <b>Atk:</b> ${stats[1]} </li><br>
+    <li class = 'fa fa-compass' style = 'padding: 10px'> <b>Def:</b> ${stats[2]} </li><br>
+    <li class = 'fa fa-compass' style = 'padding: 10px'> <b>Special Atk:</b> ${stats[3]} </li><br>
+    <li class = 'fa fa-compass' style = 'padding: 10px'> <b>Special Def:</b> ${stats[4]} </li><br>
+    <li class = 'fa fa-compass' style = 'padding: 10px'> <b>Speed:</b>  ${stats[5]} </li><br>
     </ul>
     </p>
     <p><h5>Base Experience </h5>
-    <ul><li class = 'fa fa-compass'> ${data.base_experience}</li></ul> </p> 
+    <ul><li class = 'fa fa-compass' style = 'padding: 10px'> ${data.base_experience}</li></ul> </p> 
     
     `;
     document.querySelector('#infoSkill').innerHTML =
@@ -205,7 +205,7 @@ new Selectr(document.getElementById('pokemonList'));
     $(document).ready(()=>{
     $('#infoSkill').dataTable({
             "responsive" : true,
-            "autoWidth" : false,
+            "autoWidth" : true,
             "pageLength" : 5,
             "bDestroy" : true,
             "destroy" : true,
@@ -214,15 +214,26 @@ new Selectr(document.getElementById('pokemonList'));
             "info" : false,
             "bPaginate" : true,
             "bFilter" : true,
-            "lengthChange":false
+            "lengthChange":false,
+            "pagingType":"full_numbers",
+            "drawCallback": ()=>{
+                //iterate page numbers and add padding
+                let page_numbers = document.getElementsByClassName("paginate_button");
+                for(let i = 0; i < page_numbers.length; i++){
+                    page_numbers[i].style.padding = "10px";
+                }
+               
+            }
+
+         
     });
-    $('.paginate_button').css('margin','2px');
+                
     });
     document.querySelector('#infoName').innerHTML = 
     `<h3>${name[0].charAt(0).toUpperCase() + name[0].slice(1)} </h3>`;
     document.querySelector('#infoPic').innerHTML =
     `
-    <img src = '${data.sprites.front_default}'>
+    <img src = '${data.sprites.front_default}' style = ' height: 120%; width: 120%; '>
     `
     }catch(e){
         /*
@@ -242,7 +253,7 @@ new Selectr(document.getElementById('pokemonList'));
 
  
     <select id = 'pokemonList' @change.prevent = "showContent()">
-    <option disabled selected>-Type your pokemon-</option>
+    <option disabled selected value = "">-Enter a Pokemon name-</option>
     </select>
   
 </template>

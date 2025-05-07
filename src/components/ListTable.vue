@@ -20,7 +20,7 @@ export default{
 
   async created(){
       try{
-    const resp = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=111');
+        const resp = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=111');
         const data = await resp.json();
         //name
         let newArray = [];
@@ -46,14 +46,16 @@ export default{
             "bDestroy" : true,
             "destroy" : true,
             "serverSide" : false,
-            "bInfo" : false,
-            "info" : false,
+            "bInfo" : true,
+            "info" : true,
             "bPaginate" : true,
             "bFilter" : true,
-            "lengthChange":true
+            "lengthChange":true,
+            "drawCallback": ()=>{
+                  $('.paginate_button').css('margin','10px');
+            }
         });
-        $('.paginate_button').css('margin','2px')
-       
+          $('.paginate_button').css('margin','10px');
         }catch(e){
             
             console.log(e);
