@@ -4,6 +4,8 @@ import "jquery/dist/jquery.min.js";
 import "datatables.net-dt";
 import $ from 'jquery';
 import Selectr from 'mobius1-selectr';
+import request_url from "../assets/env.js";
+
 export default{
   name: 'Search',
 
@@ -12,10 +14,10 @@ export default{
   
 
     try{
-         // $('#DataTables_Table_0_wrapper').css('display','none');
 
-    const resp = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=111');
+    const resp = await fetch(request_url);
     const data = await resp.json();
+    console.log(data)
     //name
     let newArray = [];
     data.results.forEach((pokemon) => { 
@@ -36,12 +38,16 @@ export default{
     //
 
     }catch(e){
+ 
         document.querySelector('#notice').innerHTML =
-        '<h4>There was a problem fetching the data</h4>';
-        console.log(e);
+        '<h4>There was a problem fetching the data. Please try again later.</h4>';
+        //console.log(e);
+        document.getElementById("infoSkill").style.display = "none";
+        document.getElementById("pokemonList").style.display = "none";
+        document.getElementsByClassName("selectr-container")[0].style.display = "none";
     }
 
- //await $('#pokemonList').select2({width: '100%'});
+
 
 new Selectr(document.getElementById('pokemonList'));
 
@@ -236,11 +242,8 @@ new Selectr(document.getElementById('pokemonList'));
     <img src = '${data.sprites.front_default}' style = ' height: 120%; width: 120%; '>
     `
     }catch(e){
-        /*
-        document.querySelector('#notice').innerHTML =
-        '<h4>There was a problem fetching the data</h4>';
-        console.log(e);
-        */
+       //console.log(e);
+       
     }
   
     }
@@ -251,7 +254,7 @@ new Selectr(document.getElementById('pokemonList'));
 <template>
  <link href="https://unpkg.com/mobius1-selectr@latest/dist/selectr.min.css" rel="stylesheet" type="text/css">
 
- 
+    
     <select id = 'pokemonList' @change.prevent = "showContent()">
     <option disabled selected value = "">-Enter a Pokemon name-</option>
     </select>

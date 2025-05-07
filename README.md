@@ -1,7 +1,7 @@
 # Pokedex
-@author: lHyuv/ lHyuven
+@author: lHyuv 
 A pokedex web application containing information about pokemons. Made for practice. 
-Uses PokeApi API: https://pokeapi.co/ . Git: hhttps://github.com/PokeAPI/pokeapi
+Data from PokeApi API: https://pokeapi.co/ . Git: https://github.com/PokeAPI/pokeapi
 Live/github pages: https://lhyuven.github.io/pokedex/
 
 # Version Summary
@@ -23,5 +23,8 @@ On your terminal:
 1. Install node modules
 npm i
 
-2. Run the app
+2. Run the backend service
 npm run serve
+
+3. Open the URL shown in the terminal on your web browser
+
